@@ -31,7 +31,7 @@ export default function CanvasSequence({ onPlayVideo }) {
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
       const basePath = import.meta.env.BASE_URL;
-      img.src = `${basePath}png/showreel00108${String(i).padStart(3, '0')}.png`;
+      img.src = `${basePath}jpg/showreel00108${String(i).padStart(3, '0')}.jpg`;
       img.onload = handleImageLoad;
       img.onerror = handleImageLoad; // 容錯防卡死
       loadedImages.push(img);
