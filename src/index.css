@@ -440,7 +440,7 @@ body {
     #ffe082 65%,
     transparent 80%
   );
-  animation: border-rotate 4s linear infinite;
+  animation: border-rotate 8s linear infinite;
   z-index: 0;
 }
 

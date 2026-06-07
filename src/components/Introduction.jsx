@@ -80,7 +80,7 @@ export default function Introduction({ onPlayVideo }) {
                 <img
                   src="/avatar.jpg"
                   alt="Beard"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 ease-out origin-center hover:rotate-[25deg] hover:scale-125"
                 />
               </div>
             </div>
