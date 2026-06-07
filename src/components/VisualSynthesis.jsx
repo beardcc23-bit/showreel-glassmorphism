@@ -156,7 +156,7 @@ function BrandCard({ item, onPlayVideo }) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
       onClick={() => hasVideo && onPlayVideo(item.videoId)}
-      className={`p-6 border rounded-sm flex flex-col justify-between transition-all duration-300 relative overflow-hidden group min-h-[140px] ${
+      className={`p-3.5 border rounded-sm flex flex-col justify-between transition-all duration-300 relative overflow-hidden group min-h-[95px] ${
         hasVideo
           ? 'border-zinc-200 bg-white hover:border-aurora-blue cursor-pointer hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)]'
           : 'border-zinc-200 bg-white hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)]'
@@ -174,24 +174,24 @@ function BrandCard({ item, onPlayVideo }) {
             src={logoUrl}
             alt={`${item.name} logo`}
             onError={() => setImgError(true)}
-            className="h-8 w-auto max-w-[100px] object-contain mb-4 grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-[22px] w-auto max-w-[70px] object-contain mb-2.5 grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         ) : googleFaviconUrl && !fallbackError ? (
           <img
             src={googleFaviconUrl}
             alt={`${item.name} logo`}
             onError={() => setFallbackError(true)}
-            className="h-8 w-8 object-contain mb-4 rounded-sm"
+            className="h-5 w-5 object-contain mb-2.5 rounded-sm"
           />
         ) : (
-          <div className="h-8 flex items-center mb-4">
-            <span className="mono text-[8px] text-zinc-400 bg-zinc-100 px-2 py-1 border border-zinc-200 rounded-sm">
+          <div className="h-[22px] flex items-center mb-2.5">
+            <span className="mono text-[7px] text-zinc-400 bg-zinc-100 px-1.5 py-0.5 border border-zinc-200 rounded-sm">
               // BRAND
             </span>
           </div>
         )}
 
-        <div className={`text-sm tracking-wide transition-colors duration-300 leading-snug ${
+        <div className={`text-xs tracking-wide transition-colors duration-300 leading-snug ${
           hasVideo
             ? 'text-zinc-800 group-hover:text-black font-semibold'
             : 'text-zinc-600 font-normal'
@@ -201,11 +201,11 @@ function BrandCard({ item, onPlayVideo }) {
       </div>
 
       {hasVideo ? (
-        <div className="mt-4 flex items-center gap-1.5 text-[10px] text-aurora-blue font-black tracking-widest uppercase opacity-80 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1">
-          <Play size={10} fill="currentColor" /> Play Reel
+        <div className="mt-2.5 flex items-center gap-1 text-[9px] text-aurora-blue font-black tracking-widest uppercase opacity-80 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1">
+          <Play size={8} fill="currentColor" /> Play Reel
         </div>
       ) : (
-        <div className="mt-4 text-[8px] text-zinc-400 mono tracking-widest uppercase">
+        <div className="mt-2.5 text-[8px] text-zinc-400 mono tracking-widest uppercase">
           // ARCHIVE
         </div>
       )}
@@ -256,7 +256,7 @@ export default function VisualSynthesis({ onPlayVideo }) {
       {/* 品牌卡片 Grid */}
       <motion.div
         layout
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10"
+        className="grid grid-cols-3 md:grid-cols-5 gap-3 relative z-10"
       >
         <AnimatePresence mode="popLayout">
           {currentCategory.items.map((item) => (
