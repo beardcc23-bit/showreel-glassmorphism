@@ -7,6 +7,7 @@ import SkillsDashboard from './components/SkillsDashboard';
 import Manifesto from './components/Manifesto';
 import Experience from './components/Experience';
 import VisualSynthesis from './components/VisualSynthesis';
+import BrandArchive from './components/BrandArchive';
 import Contact from './components/Contact';
 import Modal from './components/Modal';
 
@@ -92,6 +93,9 @@ export default function App() {
 
         {/* 03 視覺合成 (VFX 影片卡片列表，支援 state 彈窗播放) */}
         <VisualSynthesis onPlayVideo={handleOpenVideoModal} />
+
+        {/* 04 合作專案與品牌檔案庫 */}
+        <BrandArchive onPlayVideo={handleOpenVideoModal} />
 
         {/* 聯絡我們 */}
         <Contact />
