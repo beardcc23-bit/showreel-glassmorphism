@@ -43,7 +43,7 @@ export default function Contact() {
             <span className="bg-aurora-blue text-black p-4 rounded-sm group-hover:bg-white transition-colors duration-300 flex items-center justify-center">
               <Mail size={20} />
             </span>
-            <span className="mono text-sm uppercase tracking-wider text-zinc-300 group-hover:text-aurora-blue transition-colors duration-300">
+            <span className="mono text-sm tracking-wider text-zinc-300 group-hover:text-aurora-blue transition-colors duration-300">
               beard.cc23@gmail.com
             </span>
           </a>
@@ -51,14 +51,14 @@ export default function Contact() {
           <div className="hidden md:block w-px h-8 bg-zinc-800" />
           
           <a
-            href="tel:0910309687"
+            href="tel:0910-309-687"
             className="group flex items-center gap-6 text-xl font-bold hover:text-aurora-blue transition duration-300"
           >
             <span className="bg-aurora-blue text-black p-4 rounded-sm group-hover:bg-white transition-colors duration-300 flex items-center justify-center">
               <Phone size={20} />
             </span>
-            <span className="mono text-sm uppercase tracking-wider text-zinc-300 group-hover:text-aurora-blue transition-colors duration-300">
-              0910309687
+            <span className="mono text-sm tracking-wider text-zinc-300 group-hover:text-aurora-blue transition-colors duration-300">
+              0910-309-687
             </span>
           </a>
         </motion.div>
