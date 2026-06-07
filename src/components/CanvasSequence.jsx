@@ -162,7 +162,7 @@ export default function CanvasSequence({ onPlayVideo }) {
           <div className="glow-border" />
         </div>
 
-        {/* 置中獨立感應區 (對應紅色方框) */}
+        {/* 置中獨立感應區 (對應使用者的紅色方框感應範圍) */}
         {!isLoading && (
           <div
             onMouseEnter={handleMouseEnter}
@@ -170,17 +170,10 @@ export default function CanvasSequence({ onPlayVideo }) {
             onClick={() => onPlayVideo('s6s2p87fPdA')}
             className="absolute inset-0 m-auto w-[260px] h-[160px] z-20 flex flex-col items-center justify-center cursor-pointer pointer-events-auto"
           >
-            {/* HUD 紅色科技邊框：感應區視覺化 */}
-            <div className={`absolute inset-0 border-2 rounded-sm transition-all duration-500 ${
-              showOverlay 
-                ? 'border-red-600 bg-black/60 backdrop-blur-md shadow-[0_0_30px_rgba(220,38,38,0.5)] scale-105' 
-                : 'border-red-600/60 bg-black/10'
-            }`} />
-
-            {/* 播放按鈕與提示字 */}
-            <div className="relative z-10 flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center shadow-lg transition-all duration-300 transform ${
-                showOverlay ? 'scale-110 bg-red-600' : 'scale-90 opacity-70'
+            {/* 播放按鈕與提示字（無邊框、無背景色塊，僅在 hover 時浮現） */}
+            <div className="relative z-10 flex flex-col items-center pointer-events-none">
+              <div className={`w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all duration-300 transform ${
+                showOverlay ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
               }`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
