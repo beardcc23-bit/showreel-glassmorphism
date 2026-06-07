@@ -408,4 +408,53 @@ body {
   perspective: 1000px;
 }
 
+/* 金色流光邊框 (conic-gradient 旋轉動態流光) */
+@keyframes border-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gold-flow-border {
+  position: relative;
+  overflow: hidden;
+  padding: 3px; /* 邊框寬度 */
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  transition: box-shadow 0.5s ease;
+}
+
+.gold-flow-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 20%,
+    #ffe082 35%,
+    #d4af37 50%,
+    #ffe082 65%,
+    transparent 80%
+  );
+  animation: border-rotate 4s linear infinite;
+  z-index: 0;
+}
+
+.gold-flow-border:hover {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+}
+
+.gold-flow-inner {
+  position: relative;
+  z-index: 1;
+  background: #0d0e10;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+}
+
 

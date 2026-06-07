@@ -79,7 +79,7 @@ export default function App() {
         <Hero onPlayVideo={handleOpenVideoModal} />
 
         {/* 開場介紹區段 (S Y S T E M _ S T A T U S : O P T I M A L 及精雕文案與按鈕) */}
-        <Introduction />
+        <Introduction onPlayVideo={handleOpenVideoModal} />
 
         {/* 01 HUD 技能控制台 */}
         <SkillsDashboard />
