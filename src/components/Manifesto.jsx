@@ -59,7 +59,7 @@ export default function Manifesto() {
             01 // The Narrative & Skills
           </div>
           <h2 className="text-5xl md:text-7xl font-black leading-tight tracking-tighter glow-title text-white">
-            從 <span className="text-zinc-600">視覺合成</span> <br />
+            從 <span className="text-white font-normal">視覺合成</span> <br />
             到 <span className="text-aurora-blue">體驗構建</span>
           </h2>
           <div className="space-y-8 text-info-gold-gray text-lg leading-relaxed font-light">
@@ -67,7 +67,7 @@ export default function Manifesto() {
               十三年的 <span className="text-white font-medium">Flame 特效生涯</span>，讓雕琢影格成為我的呼吸。那是對每一影格的光影與物理科學，最誠實的致敬。
             </p>
             <p>
-              如今，我帶著這份對專業級的執著，跨界重構 <span className="text-white font-medium">使用者體驗（UX）</span>。不再拘泥於畫面的完美，我用嚴緊張的 <span className="text-white font-medium">資訊架構</span> 為骨幹、<span className="text-white font-medium">微交互</span> 為血肉，將複雜的業務邏輯，精煉為毫無摩擦的極致直覺。
+              如今，我帶著這份對專業級的執著，跨界重構 <span className="text-white font-medium whitespace-nowrap">使用者體驗（UX）</span>。不再拘泥於畫面的完美，我用嚴謹的 <span className="text-white font-medium">資訊架構</span> 為骨幹、<span className="text-white font-medium">微交互</span> 為血肉，將複雜的業務邏輯，精煉為毫無摩擦的極致直覺。
             </p>
             <p className="italic border-l-2 border-aurora-blue pl-6 py-2 text-zinc-300">
               「視覺是敲開感官的引信，而邏輯是留住心靈的錨點。我們不只是創造畫面，更在構建會呼吸的數位生態。」
