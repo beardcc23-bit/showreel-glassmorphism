@@ -82,19 +82,9 @@ export default function CanvasSequence({ onPlayVideo }) {
     };
   }, [isLoading, images, isPlaying]);
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-
-    // 判斷游標是否落在畫面中央 50% 範圍內 (x: 25%~75%, y: 25%~75%)
-    if (x >= 0.25 && x <= 0.75 && y >= 0.25 && y <= 0.75) {
-      setIsPlaying(false);
-      setShowOverlay(true);
-    } else {
-      setIsPlaying(true);
-      setShowOverlay(false);
-    }
+  const handleMouseEnter = () => {
+    setIsPlaying(false);
+    setShowOverlay(true);
   };
 
   const handleMouseLeave = () => {
@@ -163,7 +153,7 @@ export default function CanvasSequence({ onPlayVideo }) {
           scale: isLoading ? 0.95 : 1 
         }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={`w-[1000px] max-w-[90vw] aspect-video bg-black shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-sm relative cursor-pointer overflow-hidden border border-zinc-800 ${
           isLoading ? 'pointer-events-none' : 'pointer-events-auto'
