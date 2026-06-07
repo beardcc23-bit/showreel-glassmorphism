@@ -7,160 +7,146 @@ const categories = [
     id: 'food',
     name: '食品與飲料',
     items: [
-      { name: 'KIRIN', domain: 'kirin.co.jp', videoId: 's6s2p87fPdA' },
-      { name: 'TOBLERONE 三角巧克力', domain: 'toblerone.com' },
-      { name: 'UCC', domain: 'ucc.co.jp' },
-      { name: '三得利 蜂王乳+芝麻明E', domain: 'suntory.com.tw' },
-      { name: '三得利 蜜露珂娜', domain: 'suntory.com.tw' },
-      { name: '可口可樂', domain: 'cocacola.com' },
-      { name: '多力多滋', domain: 'doritos.com' },
-      { name: '好侍咖哩', domain: 'housefoods-group.com' },
-      { name: '伯朗咖啡', domain: 'mrbrown.com.tw' },
-      { name: '每朝綠茶', domain: 'vitalon.com.tw' },
-      { name: '金車噶瑪蘭威士忌', domain: 'kavalanwhisky.com' },
-      { name: '柏克金啤酒', domain: 'buckskin.com.tw' },
-      { name: '金門高粱', domain: 'kkl.com.tw' },
-      { name: '旨醞鐵板燒' },
-      { name: '活沛多', domain: 'watsons.com.tw' },
-      { name: '格蘭利威', domain: 'theglenlivet.com', videoId: 's6s2p87fPdA' },
-      { name: '桂格喝的燕麥', domain: 'quaker.com.tw' },
-      { name: '桂格形象片', domain: 'quaker.com.tw', videoId: 's6s2p87fPdA' },
-      { name: '桂格雙效健康奶粉', domain: 'quaker.com.tw' },
-      { name: '泰山八寶粥', domain: 'taisungroup.com.tw' },
-      { name: '健酪乳酸飲料', domain: 'kingcar.com.tw' },
-      { name: '黑松茶花', domain: 'heysong.com.tw' },
-      { name: '瑞穗鮮乳', domain: 'uni-president.com.tw' },
-      { name: '義美', domain: 'imeifoods.com.tw' },
-      { name: '義美生機', domain: 'imeieco.com' },
-      { name: '裸雀威士忌', domain: 'nakedmalt.com' },
-      { name: '維他露P', domain: 'vitalon.com.tw' },
-      { name: '樂事', domain: 'lays.com' },
-      { name: '灣仔碼頭水餃' }
+      { name: 'KIRIN', domain: 'kirin.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Kirin_Holdings_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'TOBLERONE 三角巧克力', domain: 'toblerone.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Toblerone_logo.svg' },
+      { name: 'UCC', domain: 'ucc.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/UCC_Holding_logo.svg' },
+      { name: '三得利 蜂王乳+芝麻明E', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '三得利 蜜露珂娜', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '可口可樂', domain: 'cocacola.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg' },
+      { name: '多力多滋', domain: 'doritos.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Doritos_logo.svg' },
+      { name: '好侍咖哩', domain: 'housefoods-group.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/House_Foods_Holdings_logo.svg' },
+      { name: '伯朗咖啡', domain: 'mrbrown.com.tw', logo: 'https://www.kingcar.com.tw/Uploads/Images/202005/0c1737e5-1ab2-4b26-80de-bd1ec2c86e0c.png' },
+      { name: '每朝綠茶', domain: 'vitalon.com.tw', logo: 'https://www.vitalon.com.tw/Uploads/Images/202005/3e3cb897-402a-464a-9ef8-e04f114c2742.png' },
+      { name: '金車噶瑪蘭威士忌', domain: 'kavalanwhisky.com', logo: 'https://www.kingcar.com.tw/Uploads/Images/202005/0c1737e5-1ab2-4b26-80de-bd1ec2c86e0c.png' },
+      { name: '柏克金啤酒', domain: 'buckskin.com.tw', logo: 'https://www.kingcar.com.tw/Uploads/Images/202005/0c1737e5-1ab2-4b26-80de-bd1ec2c86e0c.png' },
+      { name: '金門高粱', domain: 'kkl.com.tw', logo: 'https://www.kkl.com.tw/Uploads/Images/202005/85bdc329-873b-41ca-ab0c-66f8fa176df9.png' },
+      { name: '旨醞鐵板燒', domain: 'feastogether.com.tw', logo: 'https://www.feastogether.com.tw/images/logo.png' },
+      { name: '活沛多', domain: 'watsons.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Watsons_Logo.svg' },
+      { name: '格蘭利威', domain: 'theglenlivet.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/da/The_Glenlivet_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: '桂格喝的燕麥', domain: 'quaker.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Quaker_Oats_company_logo.svg' },
+      { name: '桂格形象片', domain: 'quaker.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Quaker_Oats_company_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: '桂格雙效健康奶粉', domain: 'quaker.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Quaker_Oats_company_logo.svg' },
+      { name: '泰山八寶粥', domain: 'taisungroup.com.tw', logo: 'https://www.taisun.com.tw/wp-content/themes/taisun/images/logo.png' },
+      { name: '健酪乳酸飲料', domain: 'kingcar.com.tw', logo: 'https://www.kingcar.com.tw/Uploads/Images/202005/3e3cb897-402a-464a-9ef8-e04f114c2742.png' },
+      { name: '黑松茶花', domain: 'heysong.com.tw', logo: 'https://www.heysong.com.tw/wp-content/themes/heysong/images/logo.png' },
+      { name: '瑞穗鮮乳', domain: 'uni-president.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Uni-President_Enterprises_Corporation_logo.svg' },
+      { name: '義美', domain: 'imeifoods.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/I-MEI_Foods_logo.svg' },
+      { name: '義美生機', domain: 'imeieco.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/I-MEI_Foods_logo.svg' },
+      { name: '裸雀威士忌', domain: 'nakedmalt.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/The_Famous_Grouse_logo.svg' },
+      { name: '維他露P', domain: 'vitalon.com.tw', logo: 'https://www.vitalon.com.tw/Uploads/Images/202005/3e3cb897-402a-464a-9ef8-e04f114c2742.png' },
+      { name: '樂事', domain: 'lays.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Lay%27s_Logo.svg' },
+      { name: '灣仔碼頭水餃', domain: 'generalmills.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/General_Mills_logo.svg' }
     ]
   },
   {
     id: 'tech',
     name: '科技電信與家電',
     items: [
-      { name: 'Panasonic 蒸汽電熨斗', domain: 'panasonic.com' },
-      { name: 'Panasonic VIERA', domain: 'panasonic.com' },
-      { name: 'Panasonic 便座', domain: 'panasonic.com' },
-      { name: 'Panasonic 冷萃咖啡機', domain: 'panasonic.com' },
-      { name: 'Panasonic 吸頂燈', domain: 'panasonic.com' },
-      { name: 'Panasonic W音波電動牙刷', domain: 'panasonic.com' },
-      { name: 'Samsung S20', domain: 'samsung.com' },
-      { name: 'Samsung S21', domain: 'samsung.com' },
-      { name: 'Samsung S22', domain: 'samsung.com', videoId: 's6s2p87fPdA' },
-      { name: 'Samsung Z Fold2', domain: 'samsung.com' },
-      { name: 'Samsung Z Fold3', domain: 'samsung.com' },
-      { name: 'Samsung Z Fold4', domain: 'samsung.com', videoId: 's6s2p87fPdA' },
-      { name: 'Samsung 平板', domain: 'samsung.com' },
-      { name: 'Sharp', domain: 'sharpcorp.com' },
-      { name: 'Sony Xperia', domain: 'sony.com' },
-      { name: 'TOKUYO', domain: 'tokuyo.com.tw' },
-      { name: '三菱重工空調', domain: 'mhi-mth.co.jp' },
-      { name: '三菱電機', domain: 'mitsubishielectric.com' },
-      { name: '中華電信', domain: 'cht.com.tw' }
+      { name: 'Panasonic 蒸汽電熨斗', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Panasonic VIERA', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Panasonic 便座', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Panasonic 冷萃咖啡機', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Panasonic 吸頂燈', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Panasonic W音波電動牙刷', domain: 'panasonic.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Panasonic_logo.svg' },
+      { name: 'Samsung S20', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Samsung S21', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Samsung S22', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'Samsung Z Fold2', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Samsung Z Fold3', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Samsung Z Fold4', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'Samsung 平板', domain: 'samsung.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+      { name: 'Sharp', domain: 'sharpcorp.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/SHARP_logo.svg' },
+      { name: 'Sony Xperia', domain: 'sony.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg' },
+      { name: 'TOKUYO', domain: 'tokuyo.com.tw', logo: 'https://www.tokuyo.com.tw/Uploads/Images/2021/logo.png' },
+      { name: '三菱重工空調', domain: 'mhi-mth.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Mitsubishi_Electric_logo.svg' },
+      { name: '三菱電機', domain: 'mitsubishielectric.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Mitsubishi_Electric_logo.svg' },
+      { name: '中華電信', domain: 'cht.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Chunghwa_Telecom.svg' }
     ]
   },
   {
     id: 'vehicle',
     name: '汽車與交通',
     items: [
-      { name: 'Momentum', domain: 'momentum-biking.com' },
-      { name: 'AUDI', domain: 'audi.com', videoId: 's6s2p87fPdA' },
-      { name: 'GOGORO', domain: 'gogoro.com', videoId: 's6s2p87fPdA' },
-      { name: 'Honda', domain: 'honda.com' },
-      { name: 'MAZDA', domain: 'mazda.com', videoId: 's6s2p87fPdA' },
-      { name: 'Skoda', domain: 'skoda-auto.com' },
-      { name: '中華航空', domain: 'china-airlines.com' },
-      { name: '長榮航太', domain: 'egat.com.tw' },
-      { name: '長榮航空', domain: 'evaair.com' }
+      { name: 'Momentum', domain: 'momentum-biking.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Momentum_Bicycles_logo.svg' },
+      { name: 'AUDI', domain: 'audi.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Audi-Logo_2016.svg', videoId: 's6s2p87fPdA' },
+      { name: 'GOGORO', domain: 'gogoro.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Gogoro_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'Honda', domain: 'honda.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg' },
+      { name: 'MAZDA', domain: 'mazda.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Mazda_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'Skoda', domain: 'skoda-auto.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Skoda_Auto_logo_%282023%29.svg' },
+      { name: '中華航空', domain: 'china-airlines.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/China_Airlines_logo.svg' },
+      { name: '長榮航太', domain: 'egat.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/EVA_Air_logo.svg' },
+      { name: '長榮航空', domain: 'evaair.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/EVA_Air_logo.svg' }
     ]
   },
   {
     id: 'lifestyle',
     name: '生活與百貨零售',
     items: [
-      { name: 'Ariel 抗菌洗衣精', domain: 'ariel.co.jp' },
-      { name: 'Foodpanda', domain: 'foodpanda.com', videoId: 's6s2p87fPdA' },
-      { name: 'HOLA', domain: 'hola.com.tw' },
-      { name: 'LaLaport 南港', domain: 'mitsui-shopping-park.com' },
-      { name: 'UberEats', domain: 'ubereats.com', videoId: 's6s2p87fPdA' },
-      { name: '東和鋼鐵', domain: 'tunghasteel.com' },
-      { name: '犀牛盾', domain: 'rhinoshield.tw' },
-      { name: '新光三越', domain: 'skm.com.tw' },
-      { name: '楓康一滴淨', domain: 'funcom.com.tw' },
-      { name: '錦鋐氣密窗', domain: 'chinhong.com.tw' },
-      { name: '魔術靈', domain: 'kao.com' }
+      { name: 'Ariel 抗菌洗衣精', domain: 'ariel.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Ariel_%28brand%29_logo.svg' },
+      { name: 'Foodpanda', domain: 'foodpanda.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Foodpanda_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'HOLA', domain: 'hola.com.tw', logo: 'https://www.hola.com.tw/v2/official/SalePageCategory/images/logo.svg' },
+      { name: 'LaLaport 南港', domain: 'mitsui-fudosan.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Mitsui_Fudosan_logo.svg' },
+      { name: 'UberEats', domain: 'ubereats.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Uber_Eats_2018_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: '東和鋼鐵', domain: 'tunghasteel.com.tw', logo: 'https://www.tunghasteel.com.tw/images/logo.png' },
+      { name: '犀牛盾', domain: 'rhinoshield.tw', logo: 'https://logo.clearbit.com/rhinoshield.tw' },
+      { name: '新光三越', domain: 'skm.com.tw', logo: 'https://www.skm.com.tw/img/logo.png' },
+      { name: '楓康一滴淨', domain: 'funcom.com.tw', logo: 'https://www.funcom.com.tw/images/logo.png' },
+      { name: '錦鋐氣密窗', domain: 'chinhong.com.tw', logo: 'https://www.chinhong.com.tw/img/header_logo.png' },
+      { name: '魔術靈', domain: 'kao.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Kao_Logo.svg' }
     ]
   },
   {
     id: 'health',
     name: '生醫與醫藥保健',
     items: [
-      { name: 'Accu-Chek 羅氏血糖機', domain: 'accu-chek.com' },
-      { name: '大本山益生菌', domain: 'yohome.com.tw' },
-      { name: '加倍優' },
-      { name: '台灣武田合利他命', domain: 'alinamin.com.tw', videoId: 's6s2p87fPdA' },
-      { name: '克潰精顆粒a', domain: 'kowa.co.jp' }
+      { name: 'Accu-Chek 羅氏血糖機', domain: 'accu-chek.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Roche_Logo.svg' },
+      { name: '大本山益生菌', domain: 'yohome.com.tw', logo: 'https://www.yohome.com.tw/wp-content/uploads/2019/12/logo-1.png' },
+      { name: '加倍優', domain: 'yohome.com.tw', logo: 'https://www.yohome.com.tw/wp-content/uploads/2019/12/logo-1.png' },
+      { name: '台灣武田合利他命', domain: 'takeda.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Takeda_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: '克潰精顆粒a', domain: 'kowa.co.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Kowa_Logo.svg' }
     ]
   },
   {
     id: 'beauty',
     name: '美妝與個人護理',
     items: [
-      { name: '1028 睫毛膏', domain: '1028.com.tw', videoId: 's6s2p87fPdA' },
-      { name: 'Bifesta 碧菲絲特', domain: 'bifesta.jp' },
-      { name: 'Calm Night Day 淨日夜', domain: 'yolu.jp' },
-      { name: 'LUX 髮的補給', domain: 'lux.com', videoId: 's6s2p87fPdA' },
-      { name: 'MAMA 永恆光燦系列' },
-      { name: 'TKLAB', domain: 'tklab.com.tw' },
-      { name: '三得利 比菲德氏菌', domain: 'suntory.com.tw' },
-      { name: '三得利 蜂王乳+芝麻明E', domain: 'suntory.com.tw' },
-      { name: '三得利 蜜露珂娜', domain: 'suntory.com.tw' },
-      { name: '三得利 密得絲', domain: 'suntory.com.tw' },
-      { name: '五月花極上系列', domain: 'yfycp.com' },
-      { name: '舒潔', domain: 'kleenex.com' },
-      { name: '蕾妮亞', domain: 'laurier.com' }
+      { name: '1028 睫毛膏', domain: '1028.com.tw', logo: 'https://logo.clearbit.com/1028.com.tw', videoId: 's6s2p87fPdA' },
+      { name: 'Bifesta 碧菲絲特', domain: 'bifesta.jp', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Kao_Logo.svg' },
+      { name: 'Calm Night Day 淨日夜', domain: 'yolu.jp', logo: 'https://logo.clearbit.com/yolu.jp' },
+      { name: 'LUX 髮的補給', domain: 'lux.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/LUX_logo.svg', videoId: 's6s2p87fPdA' },
+      { name: 'MAMA 永恆光燦系列', domain: 'kao.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Kao_Logo.svg' },
+      { name: 'TKLAB', domain: 'tklab.com.tw', logo: 'https://logo.clearbit.com/tklab.com.tw' },
+      { name: '三得利 比菲德氏菌', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '三得利 蜂王乳+芝麻明E', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '三得利 蜜露珂娜', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '三得利 密得絲', domain: 'suntory.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Suntory_logo.svg' },
+      { name: '五月花極上系列', domain: 'yfycp.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/YFY_logo.svg' },
+      { name: '舒潔', domain: 'kleenex.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Kleenex_logo.svg' },
+      { name: '蕾妮亞', domain: 'laurier.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Kao_Logo.svg' }
     ]
   },
   {
     id: 'finance',
     name: '金融與保險',
     items: [
-      { name: '中國信託 點燃生命之火', domain: 'ctbcbank.com', videoId: 's6s2p87fPdA' },
+      { name: '中國信託 點燃生命之火', domain: 'ctbcbank.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/CTBC-Bank-Logo.svg', videoId: 's6s2p87fPdA' },
       { name: '台灣 Pay', domain: 'taiwanpay.com.tw', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Taiwan_Pay_logo.svg' },
-      { name: '安聯人壽', domain: 'allianz.com' },
-      { name: '復華投信', domain: 'fhtrust.com.tw' },
-      { name: '遠雄人壽', domain: 'fglife.com.tw' },
-      { name: '渣打銀行', domain: 'sc.com' },
-      { name: '磊山保經', domain: 'leishan.com.tw' }
+      { name: '安聯人壽', domain: 'allianz.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Allianz.svg' },
+      { name: '復華投信', domain: 'fhtrust.com.tw', logo: 'https://www.fhtrust.com.tw/images/logo.png' },
+      { name: '遠雄人壽', domain: 'fglife.com.tw', logo: 'https://www.fglife.com.tw/images/logo.png' },
+      { name: '渣打銀行', domain: 'sc.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Standard_Chartered_Logo.svg' },
+      { name: '磊山保經', domain: 'leishan.com.tw', logo: 'https://www.leishan.com.tw/images/logo.png' }
     ]
   }
 ];
 
-// 獨立的 BrandCard 子組件處理單個卡片的 Logo 與 Fallback
 function BrandCard({ item, onPlayVideo }) {
   const [imgError, setImgError] = useState(false);
+  const [fallbackError, setFallbackError] = useState(false);
   const hasVideo = !!item.videoId;
 
-  let logoUrl = '';
-  if (item.logo) {
-    logoUrl = item.logo;
-  } else if (item.domain) {
-    logoUrl = `https://logo.clearbit.com/${item.domain}`;
-  }
-
-  // 取得品牌名字的前兩個字作為縮寫
-  const getAbbreviation = (name) => {
-    if (!name) return '';
-    if (/^[A-Za-z]/.test(name)) {
-      const match = name.match(/^[A-Za-z]+/);
-      return match ? match[0].substring(0, 2).toUpperCase() : name.substring(0, 2);
-    }
-    return name.substring(0, 2);
-  };
+  const logoUrl = item.logo || (item.domain ? `https://logo.clearbit.com/${item.domain}` : '');
+  const googleFaviconUrl = item.domain ? `https://www.google.com/s2/favicons?sz=128&domain=${item.domain}` : '';
 
   return (
     <motion.div
@@ -188,11 +174,20 @@ function BrandCard({ item, onPlayVideo }) {
             src={logoUrl}
             alt={`${item.name} logo`}
             onError={() => setImgError(true)}
-            className="h-7 w-auto max-w-[90px] object-contain mb-4 grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-8 w-auto max-w-[100px] object-contain mb-4 grayscale group-hover:grayscale-0 transition-all duration-300"
+          />
+        ) : googleFaviconUrl && !fallbackError ? (
+          <img
+            src={googleFaviconUrl}
+            alt={`${item.name} logo`}
+            onError={() => setFallbackError(true)}
+            className="h-8 w-8 object-contain mb-4 rounded-sm"
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-black text-[10px] mb-4 mono tracking-wider border border-zinc-200">
-            {getAbbreviation(item.name)}
+          <div className="h-8 flex items-center mb-4">
+            <span className="mono text-[8px] text-zinc-400 bg-zinc-100 px-2 py-1 border border-zinc-200 rounded-sm">
+              // BRAND
+            </span>
           </div>
         )}
 
