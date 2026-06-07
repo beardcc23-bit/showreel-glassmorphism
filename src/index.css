@@ -14,14 +14,67 @@
   --color-info-gold-gray: #D1C7BD;
   --glass-white: rgba(255, 255, 255, 0.02);
   --spectrum-gradient: linear-gradient(90deg, #ff7b00, #ff007f, #7f00ff, #007fff, #00ff7f);
+
+  /* 語意化主題變數 */
+  --bg-core: var(--color-bg-core);
+  --bg-mist: var(--color-bg-mist);
+  --bg-shadow: var(--color-bg-shadow);
+  --text-white-or-black: #F2F6F9;
+  --text-gray-or-zinc: #a1a1aa;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --theme-transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --grid-line: rgba(255, 255, 255, 0.015);
+  --orbit-ring: rgba(255, 255, 255, 0.06);
+  --orbit-ring-outer: rgba(255, 255, 255, 0.04);
+  --orbit-ring-inner: rgba(255, 255, 255, 0.08);
+  --orbit-ring-diag: rgba(255, 255, 255, 0.02);
+}
+
+.theme-prism {
+  --color-bg-core: #f4f4f7;
+  --color-bg-mist: #e4e4e7;
+  --color-bg-shadow: #d4d4d8;
+  --color-aurora-blue: #9e7f11; /* 調暗的精緻金 */
+  --color-title-white: #121314;
+  --color-info-gold-gray: #52525b;
+  --glass-white: rgba(0, 0, 0, 0.015);
+
+  /* 亮色語意變數 */
+  --text-white-or-black: #121314;
+  --text-gray-or-zinc: #52525b;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(0, 0, 0, 0.015);
+  --grid-line: rgba(0, 0, 0, 0.03);
+  --orbit-ring: rgba(0, 0, 0, 0.04);
+  --orbit-ring-outer: rgba(0, 0, 0, 0.02);
+  --orbit-ring-inner: rgba(0, 0, 0, 0.05);
+  --orbit-ring-diag: rgba(0, 0, 0, 0.01);
 }
 
 body {
   font-family: 'Inter', 'Noto Sans TC', sans-serif;
   background-color: var(--color-bg-core);
-  color: var(--color-title-white);
+  color: var(--text-white-or-black);
   scroll-behavior: smooth;
   overflow-x: hidden;
+  transition: var(--theme-transition);
+}
+
+/* 語意化 Utility Classes */
+.text-white-or-black {
+  color: var(--text-white-or-black) !important;
+  transition: var(--theme-transition);
+}
+
+.text-gray-or-zinc {
+  color: var(--text-gray-or-zinc) !important;
+  transition: var(--theme-transition);
+}
+
+.border-border {
+  border-color: var(--border-color) !important;
+  transition: var(--theme-transition);
 }
 
 @media (min-width: 768px) {
@@ -57,6 +110,7 @@ body {
   inset: 0;
   background: radial-gradient(circle at 50% 50%, var(--color-bg-mist) 0%, var(--color-bg-core) 100%);
   z-index: -2;
+  transition: var(--theme-transition);
 }
 .mist-bg::before {
   content: "";
@@ -73,11 +127,12 @@ body {
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 80px 80px;
   z-index: -1;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
+  transition: var(--theme-transition);
 }
 
 /* 幾何軌道容器與動畫 - 提升 z-index 確保在背景層之上、內容層之下 */
@@ -97,15 +152,16 @@ body {
 
 .orbit-ring {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--orbit-ring);
   border-radius: 50%;
   transform-style: preserve-3d;
+  transition: var(--theme-transition);
 }
 
 .ring-outer {
   width: 1100px;
   height: 1100px;
-  border-color: rgba(255, 255, 255, 0.04);
+  border-color: var(--orbit-ring-outer);
   animation: rotate-orbit 80s linear infinite;
 }
 
@@ -116,19 +172,20 @@ body {
   border-width: 1.5px;
   border-style: dashed;
   animation: rotate-orbit-reverse 60s linear infinite;
+  transition: var(--theme-transition);
 }
 
 .ring-inner {
   width: 500px;
   height: 500px;
-  border-color: rgba(255, 255, 255, 0.08); /* 調亮內圈線條 */
+  border-color: var(--orbit-ring-inner); /* 調亮內圈線條 */
   animation: rotate-orbit 40s linear infinite;
 }
 
 .ring-diagonal {
   width: 950px;
   height: 950px;
-  border-color: rgba(255, 255, 255, 0.02);
+  border-color: var(--orbit-ring-diag);
   transform: rotateX(65deg) rotateY(25deg);
 }
 
@@ -334,3 +391,42 @@ body {
   transform: scale(0.8);
   transition: all 0.4s ease;
 }
+
+/* 稜鏡折射邊框樣式 */
+.prism-border {
+  position: relative;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05));
+  background-clip: padding-box;
+}
+
+.prism-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    180px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(255, 224, 130, 0.5) 0%,
+    rgba(212, 175, 55, 0.6) 30%,
+    rgba(255, 0, 127, 0.4) 60%,
+    rgba(0, 240, 255, 0.4) 80%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.prism-border:hover::after {
+  opacity: 1;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+

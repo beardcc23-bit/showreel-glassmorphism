@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navigation() {
+export default function Navigation({ theme, onToggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -16,16 +16,16 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-xl border-b border-zinc-800/50 bg-bg-core/40">
+      <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-xl border-b border-border bg-bg-core/40 transition-colors duration-500">
         <div className="flex items-center gap-6">
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 text-white hover:text-aurora-blue transition focus:outline-none"
+            className="md:hidden p-2 text-white-or-black hover:text-aurora-blue transition focus:outline-none"
             aria-label="Toggle Menu"
           >
             <Menu size={24} />
           </button>
-          <div className="text-xl font-black tracking-tighter mono">
+          <div className="text-xl font-black tracking-tighter mono text-white-or-black">
             Beard<span className="text-aurora-blue"> Showreel</span>
           </div>
         </div>
@@ -43,7 +43,28 @@ export default function Navigation() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
+          {/* 主題切換按鈕 */}
+          <button
+            onClick={onToggleTheme}
+            className="p-2.5 rounded-full border border-border bg-zinc-950/20 dark:bg-zinc-950/20 light:bg-white/20 text-white-or-black hover:text-aurora-blue transition-all duration-300 flex items-center justify-center relative overflow-hidden backdrop-blur-md"
+            aria-label="Toggle Theme"
+          >
+            <motion.div
+              key={theme}
+              initial={{ rotate: -90, scale: 0.8, opacity: 0 }}
+              animate={{ rotate: 0, scale: 1, opacity: 1 }}
+              exit={{ rotate: 90, scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {theme === 'abyss' ? (
+                <Sun size={14} />
+              ) : (
+                <Moon size={14} />
+              )}
+            </motion.div>
+          </button>
+
           <a
             href="#contact"
             className="prism-button px-6 py-2 text-[10px] font-black uppercase tracking-widest transition duration-300 hidden md:block"
@@ -71,11 +92,11 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 w-[80%] max-w-[320px] h-screen bg-bg-core/95 backdrop-blur-2xl z-[1000] md:hidden flex flex-col justify-center p-8 gap-10 border-r border-aurora-blue/20"
+              className="fixed top-0 left-0 w-[80%] max-w-[320px] h-screen bg-bg-core/95 backdrop-blur-2xl z-[1000] md:hidden flex flex-col justify-center p-8 gap-10 border-r border-border"
             >
               <button
                 onClick={toggleMenu}
-                className="absolute top-6 right-6 text-white hover:text-aurora-blue transition"
+                className="absolute top-6 right-6 text-white-or-black hover:text-aurora-blue transition"
                 aria-label="Close Menu"
               >
                 <X size={28} />
@@ -90,7 +111,7 @@ export default function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={toggleMenu}
-                  className="text-2xl font-black uppercase tracking-tighter mono text-white hover:text-aurora-blue transition duration-300 flex flex-col"
+                  className="text-2xl font-black uppercase tracking-tighter mono text-white-or-black hover:text-aurora-blue transition duration-300 flex flex-col"
                 >
                   <span className="text-[10px] text-zinc-600 font-medium tracking-widest mono">// {item.eng}</span>
                   {item.name}

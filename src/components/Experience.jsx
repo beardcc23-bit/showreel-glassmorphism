@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import MagneticTilt from './MagneticTilt';
+import RefractionCard from './RefractionCard';
 
 export default function Experience({ onOpenProject }) {
   const projects = [
@@ -26,12 +28,12 @@ export default function Experience({ onOpenProject }) {
   ];
 
   return (
-    <section id="uiux" className="bg-zinc-100 text-black py-24 relative overflow-hidden">
+    <section id="uiux" className="bg-transparent border-t border-b border-border text-white-or-black py-24 relative overflow-hidden transition-colors duration-500">
       {/* 背景點狀裝飾 */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(var(--text-white-or-black) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
         }}
       />
@@ -43,14 +45,14 @@ export default function Experience({ onOpenProject }) {
             <div className="mono text-xs text-zinc-500 mb-6 uppercase tracking-[0.3em]">
               02 // Experience Design
             </div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none text-black">
-              Surgical <span className="text-zinc-400">Precision</span>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white-or-black">
+              Surgical <span className="text-zinc-500">Precision</span>
               <br />
               In Interaction
             </h2>
           </div>
           <div className="hidden md:block text-right max-w-xs">
-            <p className="text-sm text-zinc-500 font-light italic leading-relaxed">
+            <p className="text-sm text-gray-or-zinc font-light italic leading-relaxed">
               將 13 年的視覺直覺轉化為可度量的設計決策，追求形式與功能的絕對統一。
             </p>
           </div>
@@ -69,41 +71,43 @@ export default function Experience({ onOpenProject }) {
               className="group cursor-pointer"
             >
               {/* 高階漸層卡片封面代替 Placeholder */}
-              <div className="aspect-video rounded-sm mb-10 overflow-hidden border border-zinc-200 bg-zinc-950 relative flex items-center justify-center shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:border-zinc-400">
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 group-hover:scale-105`} />
-                <div className="absolute inset-0 grid-bg opacity-30" />
-                
-                {/* 科技感點綴 */}
-                <div className="absolute inset-x-6 top-6 flex justify-between items-center z-10 mono text-[9px] text-zinc-400">
-                  <span>SYSTEM // ONLINE</span>
-                  <span>{project.decor}</span>
-                </div>
-                
-                {/* 精密十字線條 */}
-                <div className="absolute inset-8 border border-zinc-800/40 pointer-events-none z-10 flex items-center justify-center">
-                  <div className="w-4 h-[1px] bg-zinc-700/60 absolute" />
-                  <div className="h-4 w-[1px] bg-zinc-700/60 absolute" />
-                </div>
+              <MagneticTilt className="aspect-video rounded-sm mb-10 shadow-lg">
+                <RefractionCard className="w-full h-full rounded-sm overflow-hidden border border-border bg-zinc-950 relative flex items-center justify-center transition-all duration-500 group-hover:border-zinc-700">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 group-hover:scale-105`} />
+                  <div className="absolute inset-0 grid-bg opacity-30" />
+                  
+                  {/* 科技感點綴 */}
+                  <div className="absolute inset-x-6 top-6 flex justify-between items-center z-10 mono text-[9px] text-zinc-400">
+                    <span>SYSTEM // ONLINE</span>
+                    <span>{project.decor}</span>
+                  </div>
+                  
+                  {/* 精密十字線條 */}
+                  <div className="absolute inset-8 border border-zinc-800/40 pointer-events-none z-10 flex items-center justify-center">
+                    <div className="w-4 h-[1px] bg-zinc-700/60 absolute" />
+                    <div className="h-4 w-[1px] bg-zinc-700/60 absolute" />
+                  </div>
 
-                {/* 點選提示 */}
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center">
-                  <span className="mono text-[10px] text-white bg-black px-4 py-2 border border-white tracking-widest font-black uppercase shadow-lg">
-                    Read Case Study
-                  </span>
-                </div>
+                  {/* 點選提示 */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center">
+                    <span className="mono text-[10px] text-white bg-black px-4 py-2 border border-white tracking-widest font-black uppercase shadow-lg">
+                      Read Case Study
+                    </span>
+                  </div>
 
-                <div className="absolute top-4 right-4 mono text-[10px] bg-white px-2 py-1 text-black border border-black z-30">
-                  case_{project.id}.fig
-                </div>
-              </div>
+                  <div className="absolute top-4 right-4 mono text-[10px] bg-white px-2 py-1 text-black border border-black z-30">
+                    case_{project.id}.fig
+                  </div>
+                </RefractionCard>
+              </MagneticTilt>
 
-              <h3 className="text-3xl font-black mb-6 group-hover:translate-x-3 transition-transform duration-300 tracking-tight text-black">
+              <h3 className="text-3xl font-black mb-6 group-hover:translate-x-3 transition-transform duration-300 tracking-tight text-white-or-black">
                 {project.title}
               </h3>
               
-              <div className="space-y-6 text-zinc-600 mb-8 font-light leading-relaxed">
+              <div className="space-y-6 text-gray-or-zinc mb-8 font-light leading-relaxed">
                 <p className="text-sm">
-                  <strong className="text-black font-bold uppercase text-[10px] tracking-widest block mb-1">
+                  <strong className="text-white-or-black font-bold uppercase text-[10px] tracking-widest block mb-1">
                     Problem:
                   </strong>{' '}
                   {project.problem}

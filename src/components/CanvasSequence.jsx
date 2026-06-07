@@ -172,7 +172,7 @@ export default function CanvasSequence({ onPlayVideo }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={() => window.open('https://youtu.be/s6s2p87fPdA?si=dCl_KM4buChv9vyA', '_blank')}
+              onClick={() => onPlayVideo('s6s2p87fPdA')}
               className="absolute inset-0 bg-black/60 z-20 flex flex-col items-center justify-center cursor-pointer"
             >
               <motion.div

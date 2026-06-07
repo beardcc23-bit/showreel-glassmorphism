@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import CursorGlow from './components/CursorGlow';
 import Hero from './components/Hero';
 import Introduction from './components/Introduction';
+import SkillsDashboard from './components/SkillsDashboard';
 import Manifesto from './components/Manifesto';
 import Experience from './components/Experience';
 import VisualSynthesis from './components/VisualSynthesis';
@@ -10,6 +11,12 @@ import Contact from './components/Contact';
 import Modal from './components/Modal';
 
 export default function App() {
+  const [theme, setTheme] = useState('abyss'); // 'abyss' | 'prism'
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'abyss' ? 'prism' : 'abyss'));
+  };
+
   const [modalState, setModalState] = useState({
     isOpen: false,
     type: null, // 'project' | 'video'
@@ -41,7 +48,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative text-white min-h-screen selection:bg-aurora-blue selection:text-black overflow-x-hidden">
+    <div className={`relative min-h-screen selection:bg-aurora-blue selection:text-black overflow-x-hidden theme-${theme} text-white-or-black`}>
       {/* 視覺背景與光學粒子 */}
       <div className="mist-bg" />
       <div className="grid-bg" />
@@ -70,7 +77,7 @@ export default function App() {
       <CursorGlow />
 
       {/* 頂部與行動側邊導覽列 */}
-      <Navigation />
+      <Navigation theme={theme} onToggleTheme={toggleTheme} />
 
       {/* 主頁面區段 */}
       <main>
@@ -80,7 +87,10 @@ export default function App() {
         {/* 開場介紹區段 (S Y S T E M _ S T A T U S : O P T I M A L 及精雕文案與按鈕) */}
         <Introduction />
 
-        {/* 01 設計宣言 */}
+        {/* 01 HUD 技能控制台 */}
+        <SkillsDashboard />
+
+        {/* 02 設計宣言 */}
         <Manifesto />
 
         {/* 02 體驗設計 (UI/UX 專案列表，支援 state 彈窗資料傳遞) */}
