@@ -104,9 +104,9 @@ export default function CanvasSequence({ onPlayVideo }) {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-      <AnimatePresence mode="wait">
-        {isLoading ? (
-          // 高質感科幻 Preloader
+      {/* 高質感科幻 Preloader */}
+      <AnimatePresence>
+        {isLoading && (
           <motion.div
             key="preloader"
             initial={{ opacity: 0 }}
@@ -152,60 +152,63 @@ export default function CanvasSequence({ onPlayVideo }) {
               </p>
             </div>
           </motion.div>
-        ) : (
-          // 圖片序列 Canvas 主體：採用 Flex + Aspect Ratio 精準置中，徹底解決 transform 衝突
-          <motion.div
-            key="canvas-container"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="w-[1000px] max-w-[90vw] aspect-video bg-black shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-sm pointer-events-auto relative cursor-pointer overflow-hidden border border-zinc-800"
-          >
-            <div className="w-full h-full overflow-hidden relative">
-              <canvas ref={canvasRef} className="w-full h-full block" />
-              <div className="glow-border" />
-            </div>
-
-            {/* Hover 顯示 Youtube Overlay (壓上半透明色塊與 Youtube 圖示) */}
-            <AnimatePresence>
-              {showOverlay && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => window.open('https://youtu.be/s6s2p87fPdA?si=dCl_KM4buChv9vyA', '_blank')}
-                  className="absolute inset-0 bg-black/60 z-20 flex flex-col items-center justify-center cursor-pointer"
-                >
-                  <motion.div
-                    initial={{ scale: 0.8, y: 10 }}
-                    animate={{ scale: 1, y: 0 }}
-                    exit={{ scale: 0.8, y: 10 }}
-                    className="flex flex-col items-center"
-                  >
-                    {/* 精美 YouTube Play Icon */}
-                    <div className="w-20 h-20 rounded-full bg-red-600/90 hover:bg-red-600 flex items-center justify-center shadow-lg transition-transform duration-300 transform hover:scale-110">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-10 h-10 text-white ml-1"
-                      >
-                        <path d="M8 5.14v14c0 .86.94 1.36 1.66.88l10-7a1 1 0 000-1.76l-10-7A1 1 0 008 5.14z" />
-                      </svg>
-                    </div>
-                    <span className="mono text-[10px] text-white uppercase tracking-[0.3em] mt-5 font-black drop-shadow-md">
-                      Click to View Full Reel
-                    </span>
-                  </motion.div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 圖片序列 Canvas 主體 */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ 
+          opacity: isLoading ? 0 : 1, 
+          scale: isLoading ? 0.95 : 1 
+        }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className={`w-[1000px] max-w-[90vw] aspect-video bg-black shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-sm relative cursor-pointer overflow-hidden border border-zinc-800 ${
+          isLoading ? 'pointer-events-none' : 'pointer-events-auto'
+        }`}
+      >
+        <div className="w-full h-full overflow-hidden relative">
+          <canvas ref={canvasRef} className="w-full h-full block" />
+          <div className="glow-border" />
+        </div>
+
+        {/* Hover 顯示 Youtube Overlay */}
+        <AnimatePresence>
+          {!isLoading && showOverlay && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => window.open('https://youtu.be/s6s2p87fPdA?si=dCl_KM4buChv9vyA', '_blank')}
+              className="absolute inset-0 bg-black/60 z-20 flex flex-col items-center justify-center cursor-pointer"
+            >
+              <motion.div
+                initial={{ scale: 0.8, y: 10 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.8, y: 10 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-20 h-20 rounded-full bg-red-600/90 hover:bg-red-600 flex items-center justify-center shadow-lg transition-transform duration-300 transform hover:scale-110">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-10 h-10 text-white ml-1"
+                  >
+                    <path d="M8 5.14v14c0 .86.94 1.36 1.66.88l10-7a1 1 0 000-1.76l-10-7A1 1 0 008 5.14z" />
+                  </svg>
+                </div>
+                <span className="mono text-[10px] text-white uppercase tracking-[0.3em] mt-5 font-black drop-shadow-md">
+                  Click to View Full Reel
+                </span>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
