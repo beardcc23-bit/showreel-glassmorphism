@@ -153,9 +153,7 @@ export default function CanvasSequence({ onPlayVideo }) {
           scale: isLoading ? 0.95 : 1 
         }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className={`w-[1000px] max-w-[90vw] aspect-video bg-black shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-sm relative cursor-pointer overflow-hidden border border-zinc-800 ${
+        className={`w-[1000px] max-w-[90vw] aspect-video bg-black shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-sm relative overflow-hidden border border-zinc-800 ${
           isLoading ? 'pointer-events-none' : 'pointer-events-auto'
         }`}
       >
@@ -164,40 +162,44 @@ export default function CanvasSequence({ onPlayVideo }) {
           <div className="glow-border" />
         </div>
 
-        {/* Hover 顯示 Youtube Overlay */}
-        <AnimatePresence>
-          {!isLoading && showOverlay && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => onPlayVideo('s6s2p87fPdA')}
-              className="absolute inset-0 bg-black/60 z-20 flex flex-col items-center justify-center cursor-pointer"
-            >
-              <motion.div
-                initial={{ scale: 0.8, y: 10 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.8, y: 10 }}
-                className="flex flex-col items-center"
-              >
-                <div className="w-20 h-20 rounded-full bg-red-600/90 hover:bg-red-600 flex items-center justify-center shadow-lg transition-transform duration-300 transform hover:scale-110">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-10 h-10 text-white ml-1"
-                  >
-                    <path d="M8 5.14v14c0 .86.94 1.36 1.66.88l10-7a1 1 0 000-1.76l-10-7A1 1 0 008 5.14z" />
-                  </svg>
-                </div>
-                <span className="mono text-[10px] text-white uppercase tracking-[0.3em] mt-5 font-black drop-shadow-md">
-                  Click to View Full Reel
-                </span>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* 置中獨立感應區 (對應紅色方框) */}
+        {!isLoading && (
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => onPlayVideo('s6s2p87fPdA')}
+            className="absolute inset-0 m-auto w-[260px] h-[160px] z-20 flex flex-col items-center justify-center cursor-pointer pointer-events-auto"
+          >
+            {/* HUD 紅色科技邊框：感應區視覺化 */}
+            <div className={`absolute inset-0 border-2 rounded-sm transition-all duration-500 ${
+              showOverlay 
+                ? 'border-red-600 bg-black/60 backdrop-blur-md shadow-[0_0_30px_rgba(220,38,38,0.5)] scale-105' 
+                : 'border-red-600/60 bg-black/10'
+            }`} />
+
+            {/* 播放按鈕與提示字 */}
+            <div className="relative z-10 flex flex-col items-center">
+              <div className={`w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center shadow-lg transition-all duration-300 transform ${
+                showOverlay ? 'scale-110 bg-red-600' : 'scale-90 opacity-70'
+              }`}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-8 h-8 text-white ml-1"
+                >
+                  <path d="M8 5.14v14c0 .86.94 1.36 1.66.88l10-7a1 1 0 000-1.76l-10-7A1 1 0 008 5.14z" />
+                </svg>
+              </div>
+
+              <span className={`mono text-[9px] text-white uppercase tracking-[0.3em] mt-4 font-black transition-all duration-300 ${
+                showOverlay ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+              }`}>
+                Click to View Full Reel
+              </span>
+            </div>
+          </div>
+        )}
       </motion.div>
     </div>
   );
