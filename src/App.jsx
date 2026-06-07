@@ -3,7 +3,6 @@ import Navigation from './components/Navigation';
 import CursorGlow from './components/CursorGlow';
 import Hero from './components/Hero';
 import Introduction from './components/Introduction';
-import SkillsDashboard from './components/SkillsDashboard';
 import Manifesto from './components/Manifesto';
 import Experience from './components/Experience';
 import VisualSynthesis from './components/VisualSynthesis';
@@ -81,10 +80,7 @@ export default function App() {
         {/* 開場介紹區段 (S Y S T E M _ S T A T U S : O P T I M A L 及精雕文案與按鈕) */}
         <Introduction onPlayVideo={handleOpenVideoModal} />
 
-        {/* 01 HUD 技能控制台 */}
-        <SkillsDashboard />
-
-        {/* 02 設計宣言 */}
+        {/* 02 設計宣言 (已整併技能進度條與設計故事) */}
         <Manifesto />
 
         {/* 02 體驗設計 (UI/UX 專案列表，支援 state 彈窗資料傳遞) */}
